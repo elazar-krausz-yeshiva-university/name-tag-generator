@@ -89,6 +89,15 @@ details.bulk-import{margin-top:18px;border:1px solid var(--line);border-radius:1
 .names{position:absolute;left:37.2%;top:20.5%;width:57.2%;height:72.5%;display:flex;align-items:center;justify-content:center;text-align:center;font-size:27px;line-height:1.2;color:#000;white-space:pre-line;overflow:hidden;padding:5%}
 .empty{padding:60px;color:var(--muted);text-align:center}
 @media(max-width:900px){.app{grid-template-columns:1fr;grid-template-rows:minmax(0,1fr) minmax(0,1fr)}.controls{border-right:0;border-bottom:1px solid var(--line)}}
+/* Keep mobile controls reachable through normal page scrolling. */
+@media screen and (max-width:900px){
+ .app{display:block;height:auto;min-height:100dvh;overflow:visible}
+ .controls{max-height:none;overflow:visible;display:block}
+ .list{display:block}
+ #tagList{max-height:none;overflow:visible}
+ .preview-wrap{overflow:visible}
+ .preview-head{position:static;top:auto}
+}
 @page{size:letter landscape;margin:0}
 @media print{body{background:#fff}.controls,.preview-head{display:none!important}.app{display:block;height:auto;overflow:visible}.preview-wrap{padding:0;overflow:visible}.pages{display:block}.page{width:11in;height:8.5in;box-shadow:none;break-after:page;page-break-after:always}.page:last-child{break-after:auto;page-break-after:auto}}
 </style>
