@@ -80,7 +80,12 @@ $('print').onclick=async()=>{
  }catch(error){alert('The name tag template could not load. Please reload the app and try again.')}
 };
 window.editTag=i=>{const t=tags[i];editing=i;$('location').value=t.location;$('names').value=t.names.join('\n');$('update').disabled=false;$('add').disabled=true;window.scrollTo({top:0,behavior:'smooth'})};
-window.removeTag=i=>{tags.splice(i,1);if(editing===i)reset();render()};
+window.removeTag=i=>{
+ tags.splice(i,1);
+ if(editing===i)reset();
+ else if(editing>i)editing--;
+ render();
+};
 // Parse quoted CSV fields, including commas, escaped quotes, and embedded newlines.
 function parseCsv(text){
  text=text.replace(/^\uFEFF/,'');
